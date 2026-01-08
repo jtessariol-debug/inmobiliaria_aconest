@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACONEST Real Estate Service | Inmobiliaria en San Cristóbal</title>
+    <meta name="description" content="Venta de solares, casas y administración de proyectos en San Cristóbal y Haina. Proyectos residenciales premium.">
+    
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --primary: #0f1f3d; /* Azul oscuro elegante */
+            --secondary: #c5a059; /* Dorado premium */
+            --text-dark: #333333;
+            --text-light: #f4f4f4;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- CLASES DE UTILIDAD --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: var(--white);
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: #b08d45;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* --- HEADER Y NAV --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(15, 31, 61, 0.7), rgba(15, 31, 61, 0.7)), url('https://i.postimg.cc/Zn8YkYHz/1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- ABOUT US --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .project-item {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media(min-width: 900px) {
+            .project-item {
+                flex-direction: row;
+            }
+            .project-item:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+            .project-gallery {
+                width: 55%;
+                height: auto;
+                min-height: 450px;
+            }
+            .project-info {
+                width: 45%;
+            }
+        }
+
+        /* Galería / Slider Simple */
+        .project-gallery {
+            position: relative;
+            background-color: #ddd;
+            overflow: hidden;
+            width: 100%;
+            height: 300px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .gallery-img.active {
+            opacity: 1;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 31, 61, 0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: var(--secondary);
+        }
+
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+
+        .hidden-arrow { display: none; }
+
+        .project-info {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-location {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .amenities-list {
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .amenity-item {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .amenity-item i {
+            color: var(--secondary);
+            margin-top: 4px;
+        }
+
+        .price-box {
+            background-color: #f0f4f8;
+            padding: 15px;
+            border-left: 4px solid var(--secondary);
+            margin: 20px 0;
+        }
+
+        .price-item {
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .price-highlight {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-section {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .contact-detail {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-detail i {
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+
+        .contact-form-wrapper {
+            flex: 1.5;
+            min-width: 300px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0a1529;
+            color: #ccc;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* --- WHATSAPP FLOATING --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .navbar {
+                padding: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transition: 0.3s;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .amenities-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo-container">
+                <img src="https://i.postimg.cc/0y8jsSht/logo.jpg" alt="ACONEST Logo" class="logo-img">
+                <div class="logo-text">
+                    ACONEST<br>Real Estate
+                </div>
+            </a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <h1>Invierte en tu Futuro</h1>
+            <p>Solares, Casas y Villas en los proyectos más exclusivos de San Cristóbal y Haina. Tu patrimonio empieza aquí.</p>
+            <a href="#proyectos" class="btn">Ver Proyectos</a>
+            <a href="https://wa.me/18098018459" target="_blank" class="btn btn-outline" style="margin-left: 10px;">Contactar Ahora</a>
+        </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="nosotros" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">En ACONEST Real Estate Service nos dedicamos a hacer realidad tus sueños inmobiliarios con transparencia y profesionalismo.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-hand-holding-usd about-icon"></i>
+                    <h3>Venta de Inmuebles</h3>
+                    <p>Casas, Villas y Apartamentos seleccionados para garantizar la mejor inversión.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-map-marked-alt about-icon"></i>
+                    <h3>Solares Urbanizados</h3>
+                    <p>Terrenos con títulos, servicios básicos y listos para construir tu hogar.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-tasks about-icon"></i>
+                    <h3>Gestión de Proyectos</h3>
+                    <p>Administración experta de proyectos urbanísticos residenciales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="section-padding" style="background-color: #fff;">
+        <div class="container">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            
+            <!-- Proyecto 1 -->
+            <article class="project-item" id="p1">
+                <div class="project-gallery" data-current="0">
+                    <button class="slider-btn prev-btn" onclick="changeSlide('p1', -1)"><i class="fas fa-chevron-left"></i></button>
+                    
+                    <img src="https://i.postimg.cc/Zn8YkYHz/1.jpg" class="gallery-img active" alt="Doña Ana 1">
+                    <img src="https://i.postimg.cc/9FBXJMzT/2.jpg" class="gallery-img" alt="Doña Ana 2">
+                    <img src="https://i.postimg.cc/7ZYHck2G/3.jpg" class="gallery-img" alt="Doña Ana 3">
+                    <img src="https://i.postimg.cc/25gCVLXm/4.jpg" class="gallery-img" alt="Doña Ana 4">
+                    
+                    <button class="slider-btn next-btn" onclick="changeSlide('p1', 1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project-info">
+                    <h3>Residencial Ciudad Nueva Doña Ana</h3>
+                    <div class="project-location"><i class="fas fa-map-marker-alt"></i> San Cristóbal</div>
+                    <div class="amenities-list">
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Garita de lujo</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Gazebo, bar y cocina</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Área de juegos y verdes</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Agua y Electricidad</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Calles afirmadas</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Contenes</div>
+                    </div>
+                    <div class="price-box">
+                        <div class="price-item">Precio: <span class="price-highlight">RD$4,000 / mt²</span> (Primeros 50)</div>
+                        <div class="price-item">Separación: RD$100,000</div>
+                        <div class="price-item">Inicial: 25%</div>
+                        <div class="price-item">Financiamiento: Hasta 4 años</div>
+                    </div>
+                    <button class="btn" onclick="selectProject('Residencial Doña Ana')">Solicitar Información</button>
+                </div>
+            </article>
+
+            <!-- Proyecto 2 -->
+            <article class="project-item" id="p2">
+                <div class="project-gallery" data-current="0">
+                    <button class="slider-btn prev-btn" onclick="changeSlide('p2', -1)"><i class="fas fa-chevron-left"></i></button>
+                    
+                    <img src="https://i.postimg.cc/J0xwcsKT/1.jpg" class="gallery-img active" alt="Isabella 1">
+                    <img src="https://i.postimg.cc/Y0Rcfv83/2.jpg" class="gallery-img" alt="Isabella 2">
+                    <img src="https://i.postimg.cc/6qcsL8zc/3.jpg" class="gallery-img" alt="Isabella 3">
+                    <img src="https://i.postimg.cc/RhdrQWGg/4.jpg" class="gallery-img" alt="Isabella 4">
+
+                    <button class="slider-btn next-btn" onclick="changeSlide('p2', 1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project-info">
+                    <h3>Residencial Isabella María</h3>
+                    <div class="project-location"><i class="fas fa-map-marker-alt"></i> Complejo Cerrado</div>
+                    <p>Lotes para casas independientes con vigilancia 24/7 y amenidades premium.</p>
+                    <div class="amenities-list">
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Calles Asfaltadas 8m</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Cancha Baloncesto</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Luz y Agua 24h</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Terraza Techada</div>
+                    </div>
+                    <div class="price-box">
+                        <div class="price-item">Precio: <span class="price-highlight">RD$7,000 / mt²</span></div>
+                        <div class="price-item">Desde 240 m² | Separación: RD$100k</div>
+                        <div class="price-item">Inicial 25% (6 meses sin interés)</div>
+                        <div class="price-item">Financiamiento: 18 / 24 / 36 meses</div>
+                    </div>
+                    <button class="btn" onclick="selectProject('Residencial Isabella María')">Solicitar Información</button>
+                </div>
+            </article>
+
+            <!-- Proyecto 3 -->
+            <article class="project-item" id="p3">
+                <div class="project-gallery" data-current="0">
+                    <!-- Solo una imagen, ocultamos flechas con JS o CSS si es necesario, pero aquí solo pongo la img -->
+                    <img src="https://i.postimg.cc/SKMw1TDX/6.jpg" class="gallery-img active" alt="Green Paradise">
+                </div>
+                <div class="project-info">
+                    <h3>Green Paradise Residential</h3>
+                    <div class="project-location"><i class="fas fa-map-marker-alt"></i> Madre Vieja Sur, San Cristóbal</div>
+                    <div class="amenities-list">
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Casa Club con Piscina</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Gimnasio y Coworking</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Minimarket y Seguridad</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Lobby de Lujo</div>
+                    </div>
+                    <div class="price-box">
+                        <div class="price-item">Oferta: <span class="price-highlight">RD$7,200 / mt²</span> (1ros 20)</div>
+                        <div class="price-item">Separación: RD$100,000</div>
+                        <div class="price-item">Inicial 30% (hasta 8 meses)</div>
+                        <div class="price-item">1 año libre de intereses</div>
+                    </div>
+                    <button class="btn" onclick="selectProject('Green Paradise')">Solicitar Información</button>
+                </div>
+            </article>
+
+            <!-- Proyecto 4 -->
+            <article class="project-item" id="p4">
+                <div class="project-gallery" data-current="0">
+                    <img src="https://i.postimg.cc/h4rNY7b9/1.jpg" class="gallery-img active" alt="Oasis del Sol">
+                </div>
+                <div class="project-info">
+                    <h3>Oasis del Sol</h3>
+                    <div class="project-location"><i class="fas fa-map-marker-alt"></i> La subida de Lavapiés, San Cristóbal</div>
+                    <div class="amenities-list">
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Título de propiedad</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Calles Asfaltadas</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Iluminación Completa</div>
+                        <div class="amenity-item"><i class="fas fa-check-circle"></i> Garita de Control</div>
+                    </div>
+                    <div class="price-box">
+                        <div class="price-item">Oferta: <span class="price-highlight">RD$6,000 / mt²</span></div>
+                        <div class="price-item">Separación: RD$50,000</div>
+                        <div class="price-item">6 meses sin intereses</div>
+                        <div class="price-item">Financiamiento hasta 5 años (1%)</div>
+                    </div>
+                    <button class="btn" onclick="selectProject('Oasis del Sol')">Solicitar Información</button>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section-padding contact-section">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white);">Contáctanos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p style="margin-bottom: 30px;">Estamos listos para asesorarte en tu mejor inversión inmobiliaria. Escríbenos o visítanos.</p>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <p>809-801-8459</p>
+                            <p>829-518-0040</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Calle General Leger esq. Jesús de Galíndez,<br>Bajos de Haina, San Cristóbal, RD.</p>
+                    </div>
+
+                    <div class="contact-detail">
+                        <i class="fab fa-instagram"></i>
+                        <p>@inmobiliaria_aconest</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" class="form-control" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" class="form-control" required placeholder="Tu teléfono">
+                        </div>
+                        <div class="form-group">
+                            <label for="proyecto">Proyecto de Interés</label>
+                            <select id="proyecto" class="form-control">
+                                <option value="General">Información General</option>
+                                <option value="Residencial Doña Ana">Residencial Doña Ana</option>
+                                <option value="Residencial Isabella María">Residencial Isabella María</option>
+                                <option value="Green Paradise">Green Paradise</option>
+                                <option value="Oasis del Sol">Oasis del Sol</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" class="form-control" placeholder="¿En qué podemos ayudarte?"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">ACONEST Real Estate</div>
+            <div class="social-links">
+                <a href="https://instagram.com/inmobiliaria_aconest" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/18098018459" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p class="copyright">&copy; 2023 ACONEST Real Estate Service. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/18098018459" class="whatsapp-float" target="_blank" title="Chatear en WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts JS -->
+    <script>
+        // --- Menú Móvil ---
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // --- Lógica del Slider de Imágenes (Galería) ---
+        function changeSlide(projectId, direction) {
+            const container = document.querySelector(`#${projectId} .project-gallery`);
+            const images = container.querySelectorAll('.gallery-img');
+            let currentIndex = parseInt(container.getAttribute('data-current'));
+            
+            // Ocultar imagen actual
+            images[currentIndex].classList.remove('active');
+
+            // Calcular nuevo índice
+            currentIndex += direction;
+
+            // Loop infinito
+            if (currentIndex >= images.length) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            }
+
+            // Mostrar nueva imagen
+            images[currentIndex].classList.add('active');
+            container.setAttribute('data-current', currentIndex);
+        }
+
+        // --- Auto-seleccionar proyecto en el formulario ---
+        function selectProject(projectName) {
+            const select = document.getElementById('proyecto');
+            select.value = projectName;
+            document.getElementById('contacto').scrollIntoView();
+        }
+
+        // --- Manejo del Formulario (Enviar a WhatsApp) ---
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const proyecto = document.getElementById('proyecto').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            // Crear mensaje para WhatsApp
+            const text = `Hola ACONEST, mi nombre es ${nombre}. Me interesa el proyecto: ${proyecto}. ${mensaje ? 'Mensaje: ' + mensaje : ''}`;
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://wa.me/18098018459?text=${encodedText}`;
+
+            // Confirmación visual simple
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Enviando...";
+            btn.style.backgroundColor = "#25d366";
+
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                btn.innerText = "Mensaje Enviado";
+                contactForm.reset();
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = "";
+                }, 3000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
